@@ -1,9 +1,10 @@
+from dao.db_config import get_connection 
 
-from dao.db_config import get_connection
 
-class ProfessorDAO:
+class ProfessorDAO: 
 
-    sqlSelect = "SELECT id, nome, disciplina FROM professor"
+    sqlSelect = 'SELECT id, nome, disciplina from professor order by id desc'
+
 
     def listar(self):
         conn = get_connection()
@@ -17,10 +18,19 @@ class ProfessorDAO:
         conn = get_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute('INSERT INTO professor (nome, disciplina) VALUES (%s, %s)', (nome, disciplina))
+            if id:
+                # Lógica de UPDATE
+                cursor.execute('UPDATE professor SET nome = %s, disciplina = %s WHERE id = %s', 
+                               (nome, disciplina, id))
+            else:
+                # Lógica de INSERT
+                cursor.execute('INSERT INTO professor (nome, disciplina) VALUES (%s, %s)', 
+                               (nome, disciplina))
+            
             conn.commit()
             return {"status": "ok"}
         except Exception as e:
+            conn.rollback() # Importante adicionar rollback
             return {"status": "erro", "mensagem": f"Erro: {str(e)}"}
         finally:
             conn.close()

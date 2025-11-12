@@ -1,8 +1,10 @@
-from dao.db_config import get_connection
+from dao.db_config import get_connection 
 
-class AlunoDAO:
 
-    sqlSelect = "SELECT id, nome, idade, cidade FROM aluno"
+class AlunoDAO: 
+
+    sqlSelect = 'SELECT id, nome, idade, cidade FROM aluno order by id desc'
+
 
     def listar(self):
         conn = get_connection()
@@ -24,14 +26,3 @@ class AlunoDAO:
         finally:
             conn.close()
 
-    def atualizar(self, id, nome, idade, cidade):
-        conn = get_connection()
-        cursor = conn.cursor()
-        try:
-            cursor.execute('UPDATE aluno SET nome=%s, idade=%s, cidade=%s WHERE id=%s', (nome, idade, cidade, id))
-            conn.commit()
-            return {"status": "ok"}
-        except Exception as e:
-            return {"status": "erro", "mensagem": f"Erro: {str(e)}"}
-        finally:
-            conn.close()
