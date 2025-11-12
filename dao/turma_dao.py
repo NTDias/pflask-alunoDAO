@@ -7,7 +7,7 @@ class TurmaDAO:
                 join professor p on p.id  = t.professor_id """
 
     def listar(self):
-        conn = get_db_connection()
+        conn = get_connection()
         cursor = conn.cursor()
         cursor.execute(self.sqlSelect)
         lista = cursor.fetchall()
@@ -15,7 +15,7 @@ class TurmaDAO:
         return lista
     
     def salvar(self, id, semestre, curso_id, professor_id):
-        conn = get_db_connection()
+        conn = get_connection()
         cursor = conn.cursor()
         try:
             cursor.execute('INSERT INTO turma (semestre, curso_id, professor_id) VALUES (%s, %s, %s)', (semestre, curso_id, professor_id))
