@@ -1,0 +1,27 @@
+{% include 'cabecalho.html' %}
+
+<!-- Formulário de Curso -->
+<h1 class="mb-4">Cadastrar Curso</h1>
+
+<div class="row">
+    <div class="col-12">
+        <form action="/curso/salvar/" method="POST">
+    
+           
+            <input type="hidden" name="id" value="{{ curso[0] }}">
+
+            <div class="mb-3">
+                <label for="nome_curso" class="form-label">Nome do Curso</label>
+             
+                <input type="text" class="form-control" id="nome_curso" name="nome_curso" value="{{ curso[1] }}" required>
+            </div>
+    
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="/curso" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+ 
+{% include 'rodape.html' %}

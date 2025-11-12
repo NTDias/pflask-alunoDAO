@@ -1,0 +1,40 @@
+{% include 'cabecalho.html' %}
+
+<div style="max-width: 720px;">
+
+    <h1 class="mb-4" style="white-space: pre-wrap;">{{valor_recebido}}</h1>
+    
+    
+    
+    <h2>Formulário de Cadastro</h2>
+    
+    <form action="/cadastro" method="POST">
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="data_nascimento" class="form-label">Data Nascimento</label>
+            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="cpf" class="form-label">Cpf</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="nome_mae" class="form-label">Nome da Mãe</label>
+            <input type="text" class="form-control" id="nome_mae" name="nome_mae" placeholder="Digite o nome da sua mãe" required>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+</div>
+<!-- Fim do container -->
+
+{% include 'rodape.html' %}
+
