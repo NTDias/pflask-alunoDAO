@@ -1,4 +1,4 @@
-from dao.db_config import get_db_connection
+ from dao.db_config import get_connection
 
 class TurmaDAO:
 
@@ -24,4 +24,4 @@ class TurmaDAO:
         except Exception as e:
             return {"status": "erro", "mensagem": f"Erro: {str(e)}"}
         finally:
-            conn.close()    
+            conn.close()
