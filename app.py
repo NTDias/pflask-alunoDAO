@@ -5,7 +5,7 @@ from dao.aluno_dao import AlunoDAO
 from dao.professor_dao import ProfessorDAO
 from dao.curso_dao import CursoDAO
 from dao.turma_dao import TurmaDAO
-from dao.db_config import get_db_connection
+from dao.db_config import get_connection
 
 # Criação da aplicação Flask.
 app = Flask(__name__) 
