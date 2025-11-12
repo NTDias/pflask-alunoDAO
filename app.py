@@ -37,7 +37,7 @@ def contato_sistema():
 def listar_aluno():
     dao = AlunoDAO()
     lista = dao.listar()
-    return render_template('aluno/lista.html', lista=lista)
+    return render_template('aluno/listar.html', lista=lista)
 
 @app.route('/aluno/form')
 def form_aluno():
@@ -79,7 +79,7 @@ def atualizar_aluno():
 def listar_professor():
     dao = ProfessorDAO()
     lista = dao.listar()
-    return render_template('professor/lista.html', lista=lista)
+    return render_template('professor/listar.html', lista=lista)
 
 @app.route('/professor/form')
 def form_professor():
@@ -103,7 +103,7 @@ def salvar_professor(id=None):
 def listar_curso():
     dao = CursoDAO()
     lista = dao.listar()
-    return render_template('curso/lista.html', lista=lista)
+    return render_template('curso/listar.html', lista=lista)
 
 @app.route('/curso/form')
 def form_curso():
@@ -127,7 +127,7 @@ def salvar_curso(id=None):
 def listar_turma():
     dao = TurmaDAO()
     lista = dao.listar()
-    return render_template('turma/lista.html', lista=lista)
+    return render_template('turma/listar.html', lista=lista)
 
 @app.route('/turma/form')
 def form_turma():
