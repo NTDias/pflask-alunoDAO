@@ -1,4 +1,4 @@
- from dao.db_config import get_connection
+from dao.db_config import get_connection
 
 class TurmaDAO:
 
